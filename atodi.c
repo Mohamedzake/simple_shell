@@ -8,7 +8,7 @@
  */
 int is_shell_interactive(info_t *luffy)
 {
-    return (isatty(STDIN_FILENO) && luffy->readfd <= 2);
+	return (isatty(STDIN_FILENO) && luffy->readfd <= 2);
 }
 
 /**
@@ -19,10 +19,10 @@ int is_shell_interactive(info_t *luffy)
  */
 int is_delimiter(char sanji, char *vivi)
 {
-    while (*vivi)
-        if (*vivi++ == sanji)
-            return (1);
-    return (0);
+	while (*vivi)
+		if (*vivi++ == sanji)
+			return (1);
+	return (0);
 }
 
 /**
@@ -32,10 +32,10 @@ int is_delimiter(char sanji, char *vivi)
  */
 int is_alphabetic(int sanji)
 {
-    if ((sanji >= 'a' && sanji <= 'z') || (sanji >= 'A' && sanji <= 'Z'))
-        return (1);
-    else
-        return (0);
+	if ((sanji >= 'a' && sanji <= 'z') || (sanji >= 'A' && sanji <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -45,29 +45,29 @@ int is_alphabetic(int sanji)
  */
 int new_atoi(char *sabo)
 {
-    int zoro, keros = 1, trafalgar = 0, kid;
-    unsigned int result = 0;
+	int zoro, keros = 1, trafalgar = 0, kid;
+	unsigned int result = 0;
 
-    for (zoro = 0; sabo[zoro] != '\0' && trafalgar != 2; zoro++)
-    {
-        if (sabo[zoro] == '-')
-            keros *= -1;
+	for (zoro = 0; sabo[zoro] != '\0' && trafalgar != 2; zoro++)
+	{
+		if (sabo[zoro] == '-')
+			keros *= -1;
 
-        if (sabo[zoro] >= '0' && sabo[zoro] <= '9')
-        {
-            trafalgar = 1;
-            result *= 10;
-            result += (sabo[zoro] - '0');
-        }
-        else if (trafalgar == 1)
-            trafalgar = 2;
-    }
+		if (sabo[zoro] >= '0' && sabo[zoro] <= '9')
+		{
+			trafalgar = 1;
+			result *= 10;
+			result += (sabo[zoro] - '0');
+		}
+		else if (trafalgar == 1)
+			trafalgar = 2;
+	}
 
-    if (keros == -1)
-        kid = -result;
-    else
-        kid = result;
+	if (keros == -1)
+		kid = -result;
+	else
+		kid = result;
 
-    return (kid);
+	return (kid);
 }
 
