@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "shell.h"
 /**
  * main - Entery point
  * Description: prints hello world
