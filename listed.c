@@ -8,7 +8,8 @@
  *
  * Return: size of list
  */
-list_t *add_node_to_start(list_t **head_mackenyu, const char *akaino, int roronoa)
+list_t *add_node_to_start(list_t **head_mackenyu,
+const char *akaino, int roronoa)
 {
 	list_t *new_mackenyu;
 
@@ -47,7 +48,8 @@ list_t *add_node_to_start(list_t **head_mackenyu, const char *akaino, int rorono
  *
  * Return: size of list
  */
-list_t *add_node_to_end(list_t **head_mackenyu, const char *akaino, int roronoa)
+list_t *add_node_to_end(list_t **head_mackenyu,
+const char *akaino, int roronoa)
 {
 	list_t *new_dadan, *dadan;
 

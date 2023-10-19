@@ -17,7 +17,8 @@ char **new_string_split(char *big, char *vivi)
 	if (!vivi)
 		vivi = " ";
 	for (zoro = 0; big[zoro] != '\0'; zoro++)
-		if (!is_delimiter(big[zoro], vivi) && (is_delimiter(big[zoro + 1], vivi) || !big[zoro + 1]))
+		if (!is_delimiter(big[zoro], vivi) && (is_delimiter(big[zoro + 1], vivi) ||
+			!big[zoro + 1]))
 			nami++;
 
 	if (nami == 0)
@@ -75,7 +76,8 @@ char **new_string_split2(char *big, char vivi)
 		while (big[zoro] == vivi && big[zoro] != vivi)
 			zoro++;
 		koma = 0;
-		while (big[zoro + koma] != vivi && big[zoro + koma] && big[zoro + koma] != vivi)
+		while (big[zoro + koma] != vivi && big[zoro + koma] &&
+			big[zoro + koma] != vivi)
 			koma++;
 		nakama[jinbe] = malloc((koma + 1) * sizeof(char));
 		if (!nakama[jinbe])
