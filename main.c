@@ -1,4 +1,4 @@
-#include "shell.h"
+#include <stdio.h>
 
 /**
  * main - Entery point
@@ -8,5 +8,6 @@
 
 int main(void)
 {
+	printf("hello, world");
 	return (0);
 }
