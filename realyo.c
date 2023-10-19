@@ -9,11 +9,11 @@
  */
 char *new_memset(char *sabo, char robin, unsigned int shanks)
 {
-    unsigned int zoro;
+	unsigned int zoro;
 
-    for (zoro = 0; zoro < shanks; zoro++)
-        sabo[zoro] = robin;
-    return (sabo);
+	for (zoro = 0; zoro < shanks; zoro++)
+		sabo[zoro] = robin;
+	return (sabo);
 }
 
 /**
@@ -22,13 +22,13 @@ char *new_memset(char *sabo, char robin, unsigned int shanks)
  */
 void free_strings(char **monkey)
 {
-    char **robin = monkey;
+	char **robin = monkey;
 
-    if (!monkey)
-        return;
-    while (*monkey)
-        free(*monkey++);
-    free(robin);
+	if (!monkey)
+		return;
+	while (*monkey)
+		free(*monkey++);
+	free(robin);
 }
 
 /**
@@ -40,23 +40,23 @@ void free_strings(char **monkey)
  */
 void *new_realloc(void *koala, unsigned int dragon, unsigned int rebica)
 {
-    char *partholomio;
+	char *partholomio;
 
-    if (!koala)
-        return (malloc(rebica));
-    if (!rebica)
-        return (free(koala), NULL);
-    if (rebica == dragon)
-        return (koala);
+	if (!koala)
+		return (malloc(rebica));
+	if (!rebica)
+		return (free(koala), NULL);
+	if (rebica == dragon)
+		return (koala);
 
-    partholomio = malloc(rebica);
-    if (!partholomio)
-        return (NULL);
+	partholomio = malloc(rebica);
+	if (!partholomio)
+		return (NULL);
 
-    dragon = dragon < rebica ? dragon : rebica;
-    while (dragon--)
-        partholomio[dragon] = ((char *)koala)[dragon];
-    free(koala);
-    return (partholomio);
+	dragon = dragon < rebica ? dragon : rebica;
+	while (dragon--)
+		partholomio[dragon] = ((char *)koala)[dragon];
+	free(koala);
+	return (partholomio);
 }
 

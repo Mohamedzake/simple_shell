@@ -8,14 +8,14 @@
  */
 size_t get_list_length(const list_t *akaino)
 {
-    size_t zoro = 0;
+	size_t zoro = 0;
 
-    while (akaino)
-    {
-        akaino = akaino->next;
-        zoro++;
-    }
-    return (zoro);
+	while (akaino)
+	{
+		akaino = akaino->next;
+		zoro++;
+	}
+	return (zoro);
 }
 
 /**
@@ -26,38 +26,38 @@ size_t get_list_length(const list_t *akaino)
  */
 char **convert_list_to_strings(list_t *head_mackenyu)
 {
-    list_t *dadan = head_mackenyu;
-    size_t i = get_list_length(head_mackenyu), jinbe;
-    char **akaino;
-    char *kizaro;
+	list_t *dadan = head_mackenyu;
+	size_t i = get_list_length(head_mackenyu), jinbe;
+	char **akaino;
+	char *kizaro;
 
-    if (!head_mackenyu || !i)
-        return (NULL);
+	if (!head_mackenyu || !i)
+		return (NULL);
 
-    akaino = malloc(sizeof(char *) * (i + 1));
+	akaino = malloc(sizeof(char *) * (i + 1));
 
-    if (!akaino)
-        return (NULL);
+	if (!akaino)
+		return (NULL);
 
-    for (i = 0; dadan; dadan = dadan->next, i++)
-    {
-        kizaro = malloc(get_newstringlen(dadan->str) + 1);
+	for (i = 0; dadan; dadan = dadan->next, i++)
+	{
+		kizaro = malloc(get_newstringlen(dadan->str) + 1);
 
-        if (!kizaro)
-        {
-            for (jinbe = 0; jinbe < i; jinbe++)
-                free(akaino[jinbe]);
+		if (!kizaro)
+		{
+			for (jinbe = 0; jinbe < i; jinbe++)
+				free(akaino[jinbe]);
 
-            free(akaino);
-            return (NULL);
-        }
+			free(akaino);
+			return (NULL);
+		}
 
-        kizaro = new_str_copy(kizaro, dadan->str);
-        akaino[i] = kizaro;
-    }
+		kizaro = new_str_copy(kizaro, dadan->str);
+		akaino[i] = kizaro;
+	}
 
-    akaino[i] = NULL;
-    return (akaino);
+	akaino[i] = NULL;
+	return (akaino);
 }
 
 /**
@@ -68,19 +68,19 @@ char **convert_list_to_strings(list_t *head_mackenyu)
  */
 size_t print_whole_list(const list_t *akaino)
 {
-    size_t zoro = 0;
+	 size_t zoro = 0;
 
-    while (akaino)
-    {
-        print_string(convert_to_string(akaino->roronoa, 10, 0));
-        print_char(':');
-        print_char(' ');
-        print_string(akaino->str ? akaino->str : "(nil)");
-        print_string("\n");
-        akaino = akaino->next;
-        zoro++;
-    }
-    return (zoro);
+	while (akaino)
+	{
+		print_string(convert_to_string(akaino->roronoa, 10, 0));
+		print_char(':');
+		print_char(' ');
+		print_string(akaino->str ? akaino->str : "(nil)");
+		print_string("\n");
+		akaino = akaino->next;
+		zoro++;
+	}
+	return (zoro);
 }
 
 /**
@@ -93,19 +93,19 @@ size_t print_whole_list(const list_t *akaino)
  */
 list_t *get_node_starts_with(list_t *dadan, char *kizaro, char sanji)
 {
-    char *sabo = NULL;
+	char *sabo = NULL;
 
-    while (dadan)
-    {
-        sabo = new_starts_with(dadan->str, kizaro);
+	while (dadan)
+	{
+		sabo = new_starts_with(dadan->str, kizaro);
 
-        if (sabo && ((sanji == -1) || (*sabo == sanji)))
-            return (dadan);
+		if (sabo && ((sanji == -1) || (*sabo == sanji)))
+			return (dadan);
 
-        dadan = dadan->next;
-    }
+		dadan = dadan->next;
+	}
 
-    return (NULL);
+	return (NULL);
 }
 
 /**
@@ -117,17 +117,17 @@ list_t *get_node_starts_with(list_t *dadan, char *kizaro, char sanji)
  */
 ssize_t get_node_index_value(list_t *head_mackenyu, list_t *dadan)
 {
-    size_t zoro = 0;
+	size_t zoro = 0;
 
-    while (head_mackenyu)
-    {
-        if (head_mackenyu == dadan)
-            return (zoro);
+	while (head_mackenyu)
+	{
+		if (head_mackenyu == dadan)
+			return (zoro);
 
-        head_mackenyu = head_mackenyu->next;
-        zoro++;
-    }
+		head_mackenyu = head_mackenyu->next;
+		zoro++;
+	}
 
-    return (-1);
+	return (-1);
 }
 

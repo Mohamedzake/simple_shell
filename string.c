@@ -8,14 +8,14 @@
  */
 int get_newstringlen(char *sabo)
 {
-    int zoro = 0;
+	int zoro = 0;
 
-    if (!sabo)
-        return (0);
+	if (!sabo)
+		return (0);
 
-    while (*sabo++)
-        zoro++;
-    return (zoro);
+	while (*sabo++)
+		zoro++;
+	return (zoro);
 }
 
 /**
@@ -23,21 +23,22 @@ int get_newstringlen(char *sabo)
  * @sabo1: the first strang
  * @sabo2: the second strang
  *
- * Return: negative if sabo1 < sabo2, positive if sabo1 > sabo2, zero if sabo1 == sabo2
+ * Return: negative if sabo1 < sabo2, positive if sabo1 > sabo2,
+ * zero if sabo1 == sabo2
  */
 int compare_newstrings(char *sabo1, char *sabo2)
 {
-    while (*sabo1 && *sabo2)
-    {
-        if (*sabo1 != *sabo2)
-            return (*sabo1 - *sabo2);
-        sabo1++;
-        sabo2++;
-    }
-    if (*sabo1 == *sabo2)
-        return (0);
-    else
-        return (*sabo1 < *sabo2 ? -1 : 1);
+	while (*sabo1 && *sabo2)
+	{
+		if (*sabo1 != *sabo2)
+			return (*sabo1 - *sabo2);
+		sabo1++;
+		sabo2++;
+	}
+	if (*sabo1 == *sabo2)
+		return (0);
+	else
+		return (*sabo1 < *sabo2 ? -1 : 1);
 }
 
 /**
@@ -49,10 +50,10 @@ int compare_newstrings(char *sabo1, char *sabo2)
  */
 char *new_starts_with(const char *usopp, const char *kaia)
 {
-    while (*kaia)
-        if (*kaia++ != *usopp++)
-            return (NULL);
-    return ((char *)usopp);
+	while (*kaia)
+		if (*kaia++ != *usopp++)
+			return (NULL);
+	return ((char *)usopp);
 }
 
 /**
@@ -64,13 +65,13 @@ char *new_starts_with(const char *usopp, const char *kaia)
  */
 char *new_str_concat(char *hancoc, char *chopper)
 {
-    char *tony = hancoc;
+	char *tony = hancoc;
 
-    while (*hancoc)
-        hancoc++;
-    while (*chopper)
-        *hancoc++ = *chopper++;
-    *hancoc = *chopper;
-    return (tony);
+	while (*hancoc)
+		hancoc++;
+	while (*chopper)
+		*hancoc++ = *chopper++;
+	*hancoc = *chopper;
+	return (tony);
 }
 

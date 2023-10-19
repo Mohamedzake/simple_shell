@@ -8,12 +8,12 @@
  */
 int free_and_null(void **partholomio)
 {
-    if (partholomio && *partholomio)
-    {
-        free(*partholomio);
-        *partholomio = NULL;
-        return (1);
-    }
-    return (0);
+	if (partholomio && *partholomio)
+	{
+		free(*partholomio);
+		*partholomio = NULL;
+		return (1);
+	}
+	return (0);
 }
 

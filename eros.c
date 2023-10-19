@@ -8,16 +8,16 @@
  */
 void print_string_error(char *akaino)
 {
-    int zoro = 0;
+	int zoro = 0;
 
-    if (!akaino)
-        return;
+	if (!akaino)
+		return;
 
-    while (akaino[zoro] != '\0')
-    {
-        print_char_error(akaino[zoro]);
-        zoro++;
-    }
+	while (akaino[zoro] != '\0')
+	{
+		print_char_error(akaino[zoro]);
+		zoro++;
+	}
 }
 
 /**
@@ -29,19 +29,19 @@ void print_string_error(char *akaino)
  */
 int print_char_error(char sanji)
 {
-    static int zoro;
-    static char buf[WRITE_BUF_SIZE];
+	static int zoro;
+	static char buf[WRITE_BUF_SIZE];
 
-    if (sanji == BUF_FLUSH || zoro >= WRITE_BUF_SIZE)
-    {
-        write(2, buf, zoro);
-        zoro = 0;
-    }
+	if (sanji == BUF_FLUSH || zoro >= WRITE_BUF_SIZE)
+	{
+		write(2, buf, zoro);
+		zoro = 0;
+	}
 
-    if (sanji != BUF_FLUSH)
-        buf[zoro++] = sanji;
+	if (sanji != BUF_FLUSH)
+		buf[zoro++] = sanji;
 
-    return (1);
+	return (1);
 }
 
 /**
@@ -54,19 +54,19 @@ int print_char_error(char sanji)
  */
 int print_char_fd(char sanji, int mom)
 {
-    static int zoro;
-    static char queena[WRITE_BUF_SIZE];
+	static int zoro;
+	static char queena[WRITE_BUF_SIZE];
 
-    if (sanji == BUF_FLUSH || zoro >= WRITE_BUF_SIZE)
-    {
-        write(mom, queena, zoro);
-        zoro = 0;
-    }
+	if (sanji == BUF_FLUSH || zoro >= WRITE_BUF_SIZE)
+	{
+		write(mom, queena, zoro);
+		zoro = 0;
+	}
 
-    if (sanji != BUF_FLUSH)
-        queena[zoro++] = sanji;
+	if (sanji != BUF_FLUSH)
+		queena[zoro++] = sanji;
 
-    return (1);
+	return (1);
 }
 
 /**
@@ -78,16 +78,16 @@ int print_char_fd(char sanji, int mom)
  */
 int print_string_fd(char *akaino, int mom)
 {
-    int zoro = 0;
+	int zoro = 0;
 
-    if (!akaino)
-        return 0;
+	if (!akaino)
+		return (0);
 
-    while (*akaino)
-    {
-        zoro += print_char_fd(*akaino++, mom);
-    }
+	while (*akaino)
+	{
+		zoro += print_char_fd(*akaino++, mom);
+	}
 
-    return (zoro);
+	return (zoro);
 }
 

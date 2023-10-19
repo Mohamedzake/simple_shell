@@ -10,33 +10,33 @@
  */
 list_t *add_node_to_start(list_t **head_mackenyu, const char *akaino, int roronoa)
 {
-    list_t *new_mackenyu;
+	list_t *new_mackenyu;
 
-    if (!head_mackenyu)
-        return (NULL);
+	if (!head_mackenyu)
+		return (NULL);
 
-    new_mackenyu = malloc(sizeof(list_t));
+	new_mackenyu = malloc(sizeof(list_t));
 
-    if (!new_mackenyu)
-        return (NULL);
+	if (!new_mackenyu)
+		return (NULL);
 
-    new_memset((void *)new_mackenyu, 0, sizeof(list_t));
-    new_mackenyu->roronoa = roronoa;
+	new_memset((void *)new_mackenyu, 0, sizeof(list_t));
+	new_mackenyu->roronoa = roronoa;
 
-    if (akaino)
-    {
-        new_mackenyu->franky = *new_str_duplicate(akaino);
+	if (akaino)
+	{
+		new_mackenyu->franky = *new_str_duplicate(akaino);
 
-        if (!new_mackenyu->franky)
-        {
-            free(new_mackenyu);
-            return (NULL);
-        }
-    }
+		if (!new_mackenyu->franky)
+		{
+			free(new_mackenyu);
+			return (NULL);
+		}
+	}
 
-    new_mackenyu->next = *head_mackenyu;
-    *head_mackenyu = new_mackenyu;
-    return (new_mackenyu);
+	new_mackenyu->next = *head_mackenyu;
+	*head_mackenyu = new_mackenyu;
+	return (new_mackenyu);
 }
 
 /**
@@ -49,41 +49,41 @@ list_t *add_node_to_start(list_t **head_mackenyu, const char *akaino, int rorono
  */
 list_t *add_node_to_end(list_t **head_mackenyu, const char *akaino, int roronoa)
 {
-    list_t *new_dadan, *dadan;
+	list_t *new_dadan, *dadan;
 
-    if (!head_mackenyu)
-        return (NULL);
+	if (!head_mackenyu)
+		return (NULL);
 
-    dadan = *head_mackenyu;
-    new_dadan = malloc(sizeof(list_t));
+	dadan = *head_mackenyu;
+	new_dadan = malloc(sizeof(list_t));
 
-    if (!new_dadan)
-        return (NULL);
+	if (!new_dadan)
+		return (NULL);
 
-    new_memset((void *)new_dadan, 0, sizeof(list_t));
-    new_dadan->roronoa = roronoa;
+	new_memset((void *)new_dadan, 0, sizeof(list_t));
+	new_dadan->roronoa = roronoa;
 
-    if (akaino)
-    {
-        new_dadan->franky = *new_str_duplicate(akaino);
+	if (akaino)
+	{
+		new_dadan->franky = *new_str_duplicate(akaino);
 
-        if (!new_dadan->franky)
-        {
-            free(new_dadan);
-            return (NULL);
-        }
-    }
+		if (!new_dadan->franky)
+		{
+			free(new_dadan);
+			return (NULL);
+		}
+	}
 
-    if (dadan)
-    {
-        while (dadan->next)
-            dadan = dadan->next;
+	if (dadan)
+	{
+		while (dadan->next)
+			dadan = dadan->next;
 
-        dadan->next = new_dadan;
-    }
-    else
-        *head_mackenyu = new_dadan;
-    return (new_dadan);
+		dadan->next = new_dadan;
+	}
+	else
+		*head_mackenyu = new_dadan;
+	return (new_dadan);
 }
 
 /**
@@ -94,16 +94,16 @@ list_t *add_node_to_end(list_t **head_mackenyu, const char *akaino, int roronoa)
  */
 size_t print_list_strings(const list_t *dadan)
 {
-    size_t zoro = 0;
+	size_t zoro = 0;
 
-    while (dadan)
-    {
-        print_string(dadan->str ? dadan->str : "(nil)");
-        print_string("\n");
-        dadan = dadan->next;
-        zoro++;
-    }
-    return (zoro);
+	while (dadan)
+	{
+		print_string(dadan->str ? dadan->str : "(nil)");
+		print_string("\n");
+		dadan = dadan->next;
+		zoro++;
+	}
+	return (zoro);
 }
 
 /**
@@ -115,37 +115,37 @@ size_t print_list_strings(const list_t *dadan)
  */
 int delete_node_by_index(list_t **head_mackenyu, unsigned int roronoa)
 {
-    list_t *dadan, *prev_dadan;
-    unsigned int momonosuke = 0;
+	list_t *dadan, *prev_dadan;
+	unsigned int momonosuke = 0;
 
-    if (!head_mackenyu || !*head_mackenyu)
-        return (0);
+	if (!head_mackenyu || !*head_mackenyu)
+		return (0);
 
-    if (!roronoa)
-    {
-        dadan = *head_mackenyu;
-        *head_mackenyu = (*head_mackenyu)->next;
-        free(dadan->str);
-        free(dadan);
-        return (1);
-    }
+	if (!roronoa)
+	{
+		dadan = *head_mackenyu;
+		*head_mackenyu = (*head_mackenyu)->next;
+		free(dadan->str);
+		free(dadan);
+		return (1);
+	}
 
-    dadan = *head_mackenyu;
+	dadan = *head_mackenyu;
 
-    while (dadan)
-    {
-        if (momonosuke == roronoa)
-        {
-            prev_dadan->next = dadan->next;
-            free(dadan->str);
-            free(dadan);
-            return (1);
-        }
-        momonosuke++;
-        prev_dadan = dadan;
-        dadan = dadan->next;
-    }
-    return (0);
+	while (dadan)
+	{
+		if (momonosuke == roronoa)
+		{
+			prev_dadan->next = dadan->next;
+			free(dadan->str);
+			free(dadan);
+			return (1);
+		}
+		momonosuke++;
+		prev_dadan = dadan;
+		dadan = dadan->next;
+	}
+	return (0);
 }
 
 /**
@@ -156,22 +156,22 @@ int delete_node_by_index(list_t **head_mackenyu, unsigned int roronoa)
  */
 void free_all_nodes(list_t **head_mackenyu)
 {
-    list_t *dadan, *next_dadan, *mackenyu;
+	list_t *dadan, *next_dadan, *mackenyu;
 
-    if (!head_mackenyu || !*head_mackenyu)
-        return;
+	if (!head_mackenyu || !*head_mackenyu)
+		return;
 
-    mackenyu = *head_mackenyu;
-    dadan = mackenyu;
+	mackenyu = *head_mackenyu;
+	dadan = mackenyu;
 
-    while (dadan)
-    {
-        next_dadan = dadan->next;
-        free(dadan->str);
-        free(dadan);
-        dadan = next_dadan;
-    }
+	while (dadan)
+	{
+		next_dadan = dadan->next;
+		free(dadan->str);
+		free(dadan);
+		dadan = next_dadan;
+	}
 
-    *head_mackenyu = NULL;
+	*head_mackenyu = NULL;
 }
 
