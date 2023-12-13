@@ -37,36 +37,36 @@ int _myexit(info_t *info)
  */
 int _mycd(info_t *info)
 {
-	char *a, *dire, buffer[1024];
-	int chdire_ret;
+	char *c, *dire, buffer[1024];
+	int chdir_ret;
 
-	a = getcwd(buffer, 1024);
-	if (!a)
+	c = getcwd(buffer, 1024);
+	if (!c)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
 	{
 		dire = _getenv(info, "HOME=");
 		if (!dire)
-			chdire_ret = /* TODO: what should this be? */
-				chdire((dire = _getenv(info, "PWD=")) ? dire : "/");
+			chdir_ret = /* TODO: what should this be? */
+				chdir((dire = _getenv(info, "PWD=")) ? dire : "/");
 		else
-			chdire_ret = chdire(dire);
+			chdir_ret = chdir(dire);
 	}
 	else if (_strcmp(info->argv[1], "-") == 0)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{
-			_puts(a);
+			_puts(c);
 			_putchar('\n');
 			return (1);
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdire_ret = /* TODO: what should this be? */
-			chdire((dire = _getenv(info, "OLDPWD=")) ? dire : "/");
+		chdir_ret = /* TODO: what should this be? */
+			chdir((dire = _getenv(info, "OLDPWD=")) ? dire : "/");
 	}
 	else
-		chdire_ret = chdire(info->argv[1]);
-	if (chdire_ret == -1)
+		chdir_ret = chdir(info->argv[1]);
+	if (chdir_ret == -1)
 	{
 		print_error(info, "can't cd to ");
 		_eputs(info->argv[1]), _eputchar('\n');
@@ -87,12 +87,11 @@ int _mycd(info_t *info)
  */
 int _myhelp(info_t *info)
 {
-	char **arg_aray;
+	char **arg_arry;
 
-	arg_aray = info->argv;
+	arg_arry = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*arg_aray); /* temp att_unused workaround */
+		_puts(*arg_arry); /* temp att_unused workaround */
 	return (0);
 }
-
