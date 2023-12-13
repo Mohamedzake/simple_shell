@@ -1,88 +1,88 @@
 #include "shell.h"
 
 /**
- * *new_str_copy - copies a string
- * @hancoc: the destination
- * @chopper: the source
+ * _strcpy - copies a string
+ * @dest: the destination
+ * @src: the source
  *
  * Return: pointer to destination
  */
-char *new_str_copy(char *hancoc, char *chopper)
+char *_strcpy(char *dest, char *src)
 {
-	int zoro = 0;
+	int j = 0;
 
-	if (hancoc == chopper || chopper == 0)
-		return (hancoc);
-	while (chopper[zoro])
+	if (dest == src || src == 0)
+		return (dest);
+	while (src[j])
 	{
-		hancoc[zoro] = chopper[zoro];
-		zoro++;
+		dest[j] = src[j];
+		j++;
 	}
-	hancoc[zoro] = 0;
-	return (hancoc);
+	dest[j] = 0;
+	return (dest);
 }
 
 /**
- * *new_str_duplicate - duplicates a string
- * @kaido: the string to duplicate
+ * _strdup - duplicates a string
+ * @str: the string to duplicate
  *
  * Return: pointer to the duplicated string
  */
-char *new_str_duplicate(const char *kaido)
+char *_strdup(const char *str)
 {
-	int garp = 0;
-	char *tony;
+	int length = 0;
+	char *reet;
 
-	if (kaido == NULL)
+	if (str == NULL)
 		return (NULL);
-	while (*kaido++)
-		garp++;
-	tony = malloc(sizeof(char) * (garp + 1));
-	if (!tony)
+	while (*str++)
+		length++;
+	reet = malloc(sizeof(char) * (length + 1));
+	if (!reet)
 		return (NULL);
-	for (garp++; garp--;)
-		tony[garp] = *--kaido;
-	return (tony);
+	for (length++; length--;)
+		reet[length] = *--str;
+	return (reet);
 }
 
 /**
- * print_string - prints an input string
- * @franky: the string to be printed
+ *_puts - prints an input string
+ *@str: the string to be printed
  *
  * Return: Nothing
  */
-void print_string(char *franky)
+void _puts(char *str)
 {
-	int zoro = 0;
+	int j = 0;
 
-	if (!franky)
+	if (!str)
 		return;
-	while (franky[zoro] != '\0')
+	while (str[j] != '\0')
 	{
-		print_char(franky[zoro]);
-		zoro++;
+		_putchar(str[j]);
+		j++;
 	}
 }
 
 /**
- * print_char - writes the character c to stdout
- * @keros: The character to print
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int print_char(char keros)
+int _putchar(char c)
 {
-	static int zoro;
-	static char tony[WRITE_BUF_SIZE];
+	static int j;
+	static char buf[WRITE_BUF_SIZE];
 
-	if (keros == BUF_FLUSH || zoro >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || j >= WRITE_BUF_SIZE)
 	{
-		write(1, tony, zoro);
-		zoro = 0;
+		write(1, buf, j);
+		j = 0;
 	}
-	if (keros != BUF_FLUSH)
-		tony[zoro++] = keros;
+	if (c != BUF_FLUSH)
+		buf[j++] = c;
 	return (1);
 }
 
